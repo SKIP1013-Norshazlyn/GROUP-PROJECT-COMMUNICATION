@@ -1,0 +1,539 @@
+package coding;
+import java.util.Scanner;
+public class Television {
+
+	public static void main(String[] args) 
+	{
+		//Scanner declaration to input
+		Scanner sc = new Scanner(System.in);
+		
+		//Variable declaration
+		String[] brandtype1 = {"Samsung LED TV","Samsung Plasma TV","Samsung Smart TV","Sony LED TV","Sony Plasma TV","Sony Smart TV",
+				               "Panasonic LED TV","Panasonic Plasma TV","Panasonic Smart TV","Philips LED TV","Philips Plasma TV","Philips Smart TV",
+		                       "LG LED TV","LG Plasma TV","LG Smart TV","Toshiba LED TV","Toshiba Plasma TV","Toshiba Smart TV"};
+		String brandtype ="";
+		int totaltv=0;
+		int staffID, brand, type, installation, choice ;
+		double oriprice, moneypaid, custprice, totalprice, balance, expense,salary1,salary2,rent,electricity,water;;
+		double profitprice=0, installprice=0, totalprofit=0, storeprofit=0;
+		
+		
+		//Staff enter the value to store the total profit
+		System.out.println("Welcome to the Jack’s TV system");
+		System.out.print("Please enter any integer to proceed or -1 to show the store profit for this month: ");
+		choice=sc.nextInt();
+		
+		
+       if(choice!=-1) {
+		purchasing (brandtype1, brandtype);}
+       else 
+		calculateprofit(totaltv,totalprofit);}
+
+   //     calculateprofit1(totaltv,totalprofit);}
+
+public static void purchasing(String[] brandtype1,String brandtype)
+{
+//Scanner declaration to input
+Scanner sc = new Scanner(System.in);
+
+//Variable declaration
+int totaltv=0;
+int staffID, brand, type, installation;
+double oriprice, moneypaid, custprice, totalprice, balance, expense,salary1,salary2,rent,electricity,water;;
+double profitprice=0, installprice=0, totalprofit=0, storeprofit=0;
+int choice;
+//Staff key-in the staff ID, brand, type and the original price
+//The system calculate the profit price based on brand and type of television
+
+		
+		System.out.println("Please insert your staff ID: ");
+		staffID = sc.nextInt();
+		System.out.println("Please enter the original price of the television: ");
+		oriprice = sc.nextDouble();
+		System.out.println("Please enter the brand of the television: ");
+		System.out.println("Please enter 1 for Samsung");
+		System.out.println("Please enter 2 for Sony");
+		System.out.println("Please enter 3 for Panasonic");
+		System.out.println("Please enter 4 for Philips");
+		System.out.println("Please enter 5 for LG");
+		System.out.println("Please enter 6 for Toshiba");
+		brand = sc.nextInt();
+		if (brand==1)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.18;
+				brandtype=brandtype1[0];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.17;
+				brandtype=brandtype1[1];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.19;
+				brandtype=brandtype1[2];
+			}
+		}
+		if (brand==2)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.14;
+				brandtype=brandtype1[3];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.13;
+				brandtype=brandtype1[4];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.15;
+				brandtype=brandtype1[5];
+			}
+		}
+		if (brand==3)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.14;
+				brandtype=brandtype1[6];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.13;
+				brandtype=brandtype1[7];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.15;
+				brandtype=brandtype1[8];
+			}
+		}
+		if (brand==4)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.16;
+				brandtype=brandtype1[9];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.15;
+				brandtype=brandtype1[10];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.17;
+				brandtype=brandtype1[11];
+			}
+		}
+		if (brand==5)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.11;
+				brandtype=brandtype1[12];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.10;
+				brandtype=brandtype1[13];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.12;
+				brandtype=brandtype1[14];
+			}
+		}
+		if (brand==6)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.19;
+				brandtype=brandtype1[15];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.18;
+				brandtype=brandtype1[16];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.20;
+				brandtype=brandtype1[17];
+			}
+		
+		}
+		//System calculate the customer price
+		custprice = oriprice+profitprice;
+		
+		//System calculate the 5% installation charge if accept the package
+		System.out.println("Please enter 1 to accept the installation package");
+		System.out.println("Please enter 2 to reject the installation package");
+		installation = sc.nextInt();
+		if (installation==1)
+		{
+			installprice=oriprice*0.05;
+		}
+		if (installation==2)
+		{
+			installprice= 0;
+		}
+		
+		//System calculate the total price that must been paid by the customer
+		totalprice = installprice + custprice;
+		
+		//System showed the total must been paid by the customer
+		System.out.printf("The total price must been paid : RM  %.2f ", totalprice);
+		System.out.println("");
+		
+		//Staff key-in money paid by the customer
+		System.out.println("Please enter the amount paid: RM ");
+		moneypaid = sc.nextDouble();
+		
+		//System calculate the balance for the customer
+		balance = moneypaid-totalprice;
+		
+		//System calculate the total profit for this month
+		totalprofit=totalprofit+profitprice;
+		
+		//System calculate the total of television sold in a month
+		totaltv=totaltv+1;
+		
+		//The system printout the receipt
+		System.out.println("******");
+		System.out.println("Welcome to the Jack’s TV");
+		System.out.println("******");
+		System.out.println("Staff ID : " + staffID);
+		System.out.println("The brand and of the television is : " + brandtype);
+		System.out.printf("The price of the television is :RM  %.2f ", custprice);
+		System.out.print("\n");
+		System.out.printf("The installation charge is :RM  %.2f ", installprice);
+		System.out.print("\n");
+		System.out.println("-------------------------------------------------");
+		System.out.printf("The total price must been paid :RM  %.2f ", totalprice);
+		System.out.print("\n");
+		System.out.println("-------------------------------------------------");
+		System.out.printf("The money paid by the customer: RM  %.2f ", moneypaid);
+		System.out.print("\n");
+		System.out.printf("The balance for the customer is: RM  %.2f ", balance);
+		System.out.print("\n");
+		System.out.println("Thank you for choosing Jack’s TV");
+		System.out.print("\n");
+		
+		System.out.print("Please enter any integer to proceed or -1 to show the store profit for this month: ");
+		choice=sc.nextInt();
+		
+		
+		while(choice!=-1) {
+     	
+			System.out.println("Please insert your staff ID: ");
+		staffID = sc.nextInt();
+		System.out.println("Please enter the original price of the television: ");
+		oriprice = sc.nextDouble();
+		System.out.println("Please enter the brand of the television: ");
+		System.out.println("Please enter 1 for Samsung");
+		System.out.println("Please enter 2 for Sony");
+		System.out.println("Please enter 3 for Panasonic");
+		System.out.println("Please enter 4 for Philips");
+		System.out.println("Please enter 5 for LG");
+		System.out.println("Please enter 6 for Toshiba");
+		brand = sc.nextInt();
+		if (brand==1)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.18;
+				brandtype=brandtype1[0];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.17;
+				brandtype=brandtype1[1];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.19;
+				brandtype=brandtype1[2];
+			}
+		}
+		if (brand==2)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.14;
+				brandtype=brandtype1[3];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.13;
+				brandtype=brandtype1[4];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.15;
+				brandtype=brandtype1[5];
+			}
+		}
+		if (brand==3)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.14;
+				brandtype=brandtype1[6];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.13;
+				brandtype=brandtype1[7];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.15;
+				brandtype=brandtype1[8];
+			}
+		}
+		if (brand==4)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.16;
+				brandtype=brandtype1[9];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.15;
+				brandtype=brandtype1[10];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.17;
+				brandtype=brandtype1[11];
+			}
+		}
+		if (brand==5)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.11;
+				brandtype=brandtype1[12];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.10;
+				brandtype=brandtype1[13];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.12;
+				brandtype=brandtype1[14];
+			}
+		}
+		if (brand==6)
+		{
+			System.out.println("Please enter the type of the television: ");
+			System.out.println("Please enter 1 for LED TV");
+			System.out.println("Please enter 2 for Plasma TV");
+			System.out.println("Please enter 3 for Smart TV");
+			type = sc.nextInt();
+			if (type==1)
+			{
+				profitprice=oriprice*0.19;
+				brandtype=brandtype1[15];
+			}
+			if (type==2)
+			{
+				profitprice=oriprice*0.18;
+				brandtype=brandtype1[16];
+			}
+			if (type==3)
+			{
+				profitprice=oriprice*0.20;
+				brandtype=brandtype1[17];
+			}
+		
+		}
+		//System calculate the customer price
+		custprice = oriprice+profitprice;
+		
+		//System calculate the 5% installation charge if accept the package
+		System.out.println("Please enter 1 to accept the installation package");
+		System.out.println("Please enter 2 to reject the installation package");
+		installation = sc.nextInt();
+		if (installation==1)
+		{
+			installprice=oriprice*0.05;
+		}
+		if (installation==2)
+		{
+			installprice= 0;
+		}
+		
+		//System calculate the total price that must been paid by the customer
+		totalprice = installprice + custprice;
+		
+		//System showed the total must been paid by the customer
+		System.out.printf("The total price must been paid : RM  %.2f ", totalprice);
+		System.out.println("");
+		
+		//Staff key-in money paid by the customer
+		System.out.println("Please enter the amount paid: RM ");
+		moneypaid = sc.nextDouble();
+		
+		//System calculate the balance for the customer
+		balance = moneypaid-totalprice;
+		
+		//System calculate the total profit for this month
+		totalprofit=totalprofit+profitprice;
+		
+		//System calculate the total of television sold in a month
+		totaltv=totaltv+1;
+		
+		//The system printout the receipt
+		System.out.println("******");
+		System.out.println("Welcome to the Jack’s TV");
+		System.out.println("******");
+		System.out.println("Staff ID : " + staffID);
+		System.out.println("The brand and of the television is : " + brandtype);
+		System.out.printf("The price of the television is :RM  %.2f ", custprice);
+		System.out.print("\n");
+		System.out.printf("The installation charge is :RM  %.2f ", installprice);
+		System.out.print("\n");
+		System.out.println("-------------------------------------------------");
+		System.out.printf("The total price must been paid :RM  %.2f ", totalprice);
+		System.out.print("\n");
+		System.out.println("-------------------------------------------------");
+		System.out.printf("The money paid by the customer: RM  %.2f ", moneypaid);
+		System.out.print("\n");
+		System.out.printf("The balance for the customer is: RM  %.2f ", balance);
+		System.out.print("\n");
+		System.out.println("Thank you for choosing Jack’s TV");
+		System.out.print("\n");
+		
+		System.out.print("Please enter any integer to proceed or -1 to show the store profit for this month: ");
+		choice=sc.nextInt();
+		
+		}
+		
+         
+           calculateprofit1(totaltv,totalprofit);}
+       
+          public static void calculateprofit1(int totaltv, double totalprofit) {
+			Scanner sc = new Scanner(System.in);
+		//System showed the total profit of the television and total piece of television sold
+		System.out.printf("The Jack's TV store profit for this month is: RM  %.2f ", totalprofit);
+		System.out.print("\n");
+		System.out.println("The total television sold in a month is : "+ totaltv);
+		
+		//Staff key-in the expenses for this month
+		System.out.println("Please enter the expenses of the store for this month");
+		System.out.println("Please enter the first staff salary for this month");
+		double salary1=sc.nextDouble();
+		System.out.println("Please enter the second staff salary for this month");
+		double salary2=sc.nextDouble();
+		System.out.println("Please enter the store rent for this month");
+		double rent=sc.nextDouble();
+		System.out.println("Please enter the electricity bill for this month");
+		double electricity=sc.nextDouble();
+		System.out.println("Please enter the water bill for this month");
+		double water=sc.nextDouble();
+		
+		//System calculate the total expenses for this month
+		double expense=salary1+salary2+rent+electricity+water;
+		
+		//System calculate the store profit for this month
+		double storeprofit=totalprofit-expense;
+		System.out.printf("The Jack's TV store profit for this month is: RM  %.2f ", storeprofit);
+		
+}
+		
+			
+		
+		public static void calculateprofit(int totaltv,double totalprofit)
+		{
+			Scanner sc = new Scanner(System.in);
+		//System showed the total profit of the television and total piece of television sold
+		System.out.printf("The Jack's TV store profit for this month is: RM  %.2f ", totalprofit);
+		System.out.print("\n");
+		System.out.println("The total television sold in a month is : "+ totaltv);
+		
+		//Staff key-in the expenses for this month
+		System.out.println("Please enter the expenses of the store for this month");
+		System.out.println("Please enter the first staff salary for this month");
+		double salary1=sc.nextDouble();
+		System.out.println("Please enter the second staff salary for this month");
+		double salary2=sc.nextDouble();
+		System.out.println("Please enter the store rent for this month");
+		double rent=sc.nextDouble();
+		System.out.println("Please enter the electricity bill for this month");
+		double electricity=sc.nextDouble();
+		System.out.println("Please enter the water bill for this month");
+		double water=sc.nextDouble();
+		
+		//System calculate the total expenses for this month
+		double expense=salary1+salary2+rent+electricity+water;
+		//System calculate the store profit for this month
+		double storeprofit=totalprofit-expense;
+		System.out.printf("The Jack's TV store profit for this month is: RM  %.2f ", storeprofit);
+		}
+
+
+}
