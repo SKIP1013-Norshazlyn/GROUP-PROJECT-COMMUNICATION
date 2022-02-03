@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class MainMenu {
+
+	public static void main(String[] args) 
+	{
+		Scanner in = new Scanner (System.in);
+		
+		System.out.println("**************************Welcome to our service**************************");
+		System.out.println();
+		System.out.println("1 = Internet  2 = Mobile Phone  3 = Laptop  4 = Smart Watch  5 = Television");
+		System.out.print("Please enter your option: ");
+		int option = in.nextInt();
+		System.out.println();
+		
+		if(option == 1)
+		{
+			Internet i = new Internet();
+			i.main(args);
+		}
+		
+		else if(option == 2)
+		{
+			MobilePhone m = new MobilePhone();
+			m.main(args);
+		}
+		
+		else if(option == 3)
+		{
+			Laptop l = new Laptop();
+			l.main(args);
+		}
+		
+		else if(option == 4)
+		{
+			SmartWatch s = new SmartWatch();
+			s.main(args);
+		}
+		
+		else if(option == 5)
+		{
+			Television t = new Television();
+			t.main(args);
+		}
+		
+		else
+		{
+			System.out.println("Invalid number!! Please try again");
+
+
+	}
+
+
+
+	}
+
+}
