@@ -1,0 +1,127 @@
+package coding;
+import java.util.Scanner;
+public class SmartWatch {
+	
+	private static void calculateBmi() {
+		Scanner input = new Scanner(System.in);
+
+		float heightInCM = 0;
+		float weightInKG = 0;
+		float bmi = 0; 
+		float bmiTable;
+		float idealBmi, idealWeight;
+		float normalBmi;
+		String result = null;
+
+		result = bmiCategory(weightInKG, heightInCM);
+
+		System.out.println();
+		System.out.println("Hello! Welcome to BMI tracker");
+		System.out.println();
+
+		    System.out.print("Weight (KG): ");
+		weightInKG=input.nextFloat();
+		System.out.print("Height (CM): ");
+		heightInCM=input.nextFloat();
+
+		bmi = (100*100*weightInKG)/(heightInCM*heightInCM);
+
+		System.out.println();
+
+		System.out.printf("Your BMI is %.2f " ,bmi);
+		System.out.println();
+		System.out.println(result);		
+		System.out.println();
+		System.out.println();
+		System.out.println("------BMI TABLE------");
+		System.out.println("WEIGHT\t\tBMI");
+
+		while(weightInKG <= 100) {
+		bmiTable = (100*100*weightInKG)/(heightInCM*heightInCM);
+		System.out.printf("%.2f\t\t%.2f\n", weightInKG, bmiTable);
+		weightInKG = weightInKG +2;
+		}
+		System.out.println("---------------------");
+
+		System.out.println();
+
+		System.out.print("Ideal BMI        : ");
+		idealBmi=input.nextFloat();
+		System.out.print("Ideal Weight (KG): ");
+		idealWeight=input.nextFloat();
+
+
+		if(bmi < idealBmi)
+		{
+		normalBmi = idealWeight-bmi;
+		System.out.printf("You need to gain at least %.2f " ,normalBmi);
+		System.out.println("kg");
+		}
+		else if(bmi > idealBmi)
+		{
+		normalBmi = bmi-idealWeight;
+		System.out.printf("You need to lose at least %.2f " ,normalBmi);
+		System.out.println("kg");
+		}
+		else
+		System.out.println("Good! You are fit :)");
+		}
+
+		public static String bmiCategory(float height, float weight) {
+		float bmi = (100*100*weight)/(height*height);
+		if (bmi < 18.5)
+		{
+		return ("You are underweight.");
+		}
+		else if ((bmi > 18.5) && (bmi <24.9))
+		{
+		return ("You are normal.");
+		}
+		else if ((bmi >= 25) && (bmi < 30))
+		{
+		return ("You are overweight.");
+		}
+		else
+		{
+		return ("You are obese.");
+		}
+		}
+		private static void getDaysInMonth() {
+		Scanner input = new Scanner(System.in);
+		int months[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		 int month;
+		 
+		 System.out.println();
+		 System.out.println("HELLO! Welcome to Get Days Apps");
+		 System.out.print("Enter month number from 1-12: ");
+		 month=input.nextInt();
+		 
+		 if (month >= 1 && month <= 12) {
+		 System.out.println(months[month - 1] + " days");
+		 }
+		 else {
+		 System.out.println("Invalid input!Please enter again.");
+		 }
+		}
+		 
+		public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		int num;
+
+		System.out.println("HELLO! Here's a latest features upgraded which can calculate your BMI and tell you how many days in a month");
+		System.out.println();
+		System.out.print("Enter 1 to open BMI Tracker or 2 to open GetDays: ");
+		num=input.nextInt();
+		if (num == 1) {
+		calculateBmi();
+		} else if (num == 2){
+		getDaysInMonth();
+		} else {
+		System.out.println("Invalid input!!!");
+		}
+		}
+		 
+		}
+
+
