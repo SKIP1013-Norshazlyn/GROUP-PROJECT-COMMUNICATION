@@ -1,0 +1,183 @@
+
+import java.util.Scanner;
+public class Internet {
+
+	public static void main(String[] args) 
+	{
+Scanner in = new Scanner(System.in);
+		
+		int enter, proceed;
+		double a,b,c,d,e,f,g,h;
+		double totalData;
+		double data,time,speed;
+		double pay;
+		
+		System.out.println("******************WELCOME TO INTERNET MULTI APP******************");
+		System.out.println("Do you want go to next page?");
+		System.out.println("if yes enter zero (0)");
+		System.out.println("if no enter one (1)");
+		proceed = in.nextInt();
+		System.out.println(" \n ");
+		
+		for (int i = 0; i <= 0; i--)
+		{
+			i = proceed;
+			
+			
+			if ( proceed == 0 )
+			{
+				System.out.println("1. CALCULATE DATA USAGE ");
+			    System.out.println("2. CALCULATE INTERNET SPEED ");
+			    System.out.println("3. CHECK INTERNET COVERAGE FOR EACH STATE ");
+			    System.out.println("4. PURCHASING INTERNET ");
+			    System.out.println(" ");
+			    System.out.println("ENTER NUMBER TO PROCEED TO NEXT PAGE:");
+			    enter = in.nextInt();
+			    System.out.println(" \n ");
+			    
+				if ( enter == 1 )
+				{
+					System.out.println("****************** SYSTEM TO CALCULATE DATA ******************");
+					System.out.println(" ");
+					System.out.println("Enter value for each activities");
+					System.out.println(" ");
+					System.out.print("1-One web page visit = 1MB : ");
+					a = in.nextDouble();
+					System.out.print("2-One song (uploaded or downloaded) = 5.7MB : ");
+					b = in.nextDouble();
+					System.out.print("3-One minute of streaming audio = 0.7MB : ");
+					c = in.nextDouble();
+					System.out.print("4-One email (text only) = 0.035MB :");
+					d = in.nextDouble();
+					System.out.print("5-One email with attachment = 3MB : ");
+					e = in.nextDouble();
+					System.out.print("6-One minute of online gaming = 0.33MB : ");
+					f = in.nextDouble();
+					System.out.print("7-One minute of streaming high resolution video = 5.88MB : ");
+					g = in.nextDouble();
+					System.out.print("8-One photo (uploaded or downloaded) = 3MB : ");
+					h = in.nextDouble();
+					System.out.println(" ");
+					totalData= (a*1)+(b*5.7)+(c*0.7)+(d*0.035)+(e*3)+(f*0.33)+(g*5.88)+(h*3);
+					System.out.printf("Total data usage are: %.2f MB" ,totalData);
+				}
+				else if ( enter == 2)
+				{
+					System.out.println("*****This is to calculate internet speed in Mbps*****");
+					System.out.println(" ");
+					System.out.print("Enter data usage in Mega byte: ");
+					data = in.nextDouble();
+					System.out.print("Enter time in minute: ");
+					time = in.nextDouble();
+					speed = data / (time * 60 ) ;
+					System.out.println(" ");
+					System.out.printf("This is your internet speed: %.2f" ,speed);
+				}
+				else if ( enter == 3)
+				{
+					System.out.println("**************************************************************************");
+					System.out.println("       List of internet coverage by descending order for each state"        );
+					System.out.println("**************************************************************************");
+					System.out.println("Johor           = Digi    | Umobile | Maxis   | Unifi   | Celcom  | Yes");
+					System.out.println("Kedah           = Umobile | Digi    | Maxis   | Celcom  | Unifi   | Yes");
+					System.out.println("Kelantan        = Maxis   | Digi    | Umobil  | Unifi   | Yes     | Celcom");
+					System.out.println("Kuala Lumpur    = Maxis   | Celcom  | Digi    | Umobile | Unifi   | Yes");
+					System.out.println("Melaka          = Digi    | Maxis   | Umobile | Celcom  | Unifi   | Yes");
+					System.out.println("Negeri Sembilan = Digi    | Maxis   | Umobile | Unifi   | Yes     | Celcom");
+					System.out.println("Pahang          = Digi    | Maxis   | Umobile | Yes     | Celcom  | Unifi");
+					System.out.println("Perak           = Digi    | Maxis   | Umobile | Unifi   | Celcom  | Yes");
+					System.out.println("Perlis          = Umobile | Digi    | Maxis   | Celcom  | Unifi   | ");
+					System.out.println("Pulau Pinang    = Digi    | Maxis   | Umobile | Celcom  | Unifi   | Yes");
+					System.out.println("Sabah           = Digi    | Umobile | Maxis   | Unifi   | Yes     | Celcom");
+					System.out.println("Sarawak         = Digi    | Maxis   | Umobile | Unifi   | Celcom  | ");
+					System.out.println("Selangor        = Maxis   | Digi    | Umobile | Celcom  | Unifi   | Yes");
+					System.out.println("Terangganu      = Maxis   | Digi    | Umobile | Unifi   | Celcom  | Yes");
+				}
+				else if ( enter == 4)
+				{
+					System.out.println("DIGI = 1  MAXIS = 2  UMOBILE = 3  UNIFI = 4  CELCOM = 5  YES = 6");
+					System.out.println(" ");
+					System.out.println("Each member will get 5% discount for every purchasing.");
+					System.out.println("Customer who purchase from outside Malaysia will be charge RM 10 for each purchasing.");
+					System.out.println("Monthly internet data plan price");
+					System.out.println(" ");
+					String choice [] = {"1. 10 GB = RM 40  25 GB = RM 60  50 GB = RM 90  65 GB = RM 120  85 GB = RM 150" , "2. UNLIMITED WITH 500 HIGH SPEED DATA = RM 15  UNLIMITED WITH 20 GB HIGH SPEED DATA = RM 128" , 
+							            "3. UNLIMITED DATA = RM 30    UNLIMITED DATA AND CALLS = RM 35" , "5. 5 GB = RM 30  10 GB = RM 50  15 GB = RM 79" , 
+							            "4. 2 GB = RM 19  3 GB = RM 29  5 GB = RM 39  10 GB = RM 59" , "5. 5 GB = RM 30  10 GB = RM 50  15 GB = RM 79" , "6. 10 GB = RM 48  24 GB = RM 88  32 GB = RM 98  38 GB = RM 128  46 GB = RM 158"};			
+					yourchoice(choice);
+					System.out.println(" ");
+					pay = totalPay ();
+					
+					System.out.println("Total payment: RM " +pay);
+					
+				}
+				else
+					System.out.println("You enter the wrong number");
+			}
+			
+			System.out.println(" \n ");
+			System.out.println("Do you want go to main page?");
+			System.out.println("If yes enter zero (0)");
+			System.out.println("If no enter one (1)");
+			proceed = in.nextInt();
+			i = proceed + 1;
+			
+			
+		}
+		System.out.println(" \n ");
+				System.out.println("*************** THANK YOU FOR USING THIS APPLICATION ****************");
+	}
+	
+	public static double totalPay ( )
+	{
+		Scanner in = new Scanner (System.in);
+		
+		int member,country;
+		double price, pay;
+		
+		System.out.print("Are you a member? yes (1) / no (0) : " );
+		member = in.nextInt();
+		System.out.print("Are you in Malaysia? yes (1) / no (0) : " );
+		country = in.nextInt();
+		System.out.print("Enter price of data plan you want to purchase: ");
+		price = in.nextInt();
+		 
+		if ((member == 1) && (country == 1) )
+		{
+			pay = (0.95*price);
+		}
+		else if ((member == 1) && (country == 0))
+		{
+			pay = (0.95*price) + 10;
+		}
+		else if ((member == 0) && (country == 0))
+		{
+			pay = price + 10;
+		}
+		else
+		{
+			pay = price;
+		}
+		
+		return pay;
+	}
+	
+	public static void yourchoice ( String [] allchoice)
+	{
+		Scanner in = new Scanner (System.in);
+		
+		System.out.print("Enter number of your choice: " );
+		int num = in.nextInt();
+		num = num - 1;
+		
+		for(int i = 0; i < allchoice.length; i++)
+		{
+			if (num == i)
+				System.out.println(allchoice[i] +" ");
+		}
+			
+	}
+	
+	
+}
+	
