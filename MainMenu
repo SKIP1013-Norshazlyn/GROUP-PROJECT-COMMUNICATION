@@ -4,10 +4,11 @@ public class MainMenu {
 	public static void main(String[] args) 
 	{
 		Scanner in = new Scanner (System.in);
+		int ver;
 		
-		System.out.println("**************************Welcome to our service**************************");
+		System.out.println("*********Welcome to our service*********");
 		System.out.println();
-		System.out.println("1 = Internet  2 = Mobile Phone  3 = Laptop  4 = Smart Watch  5 = Television");
+		System.out.println("1 = Internet  2 = Mobile Phone  3 = Laptop  4 = Smart Watch  5 = Television  6 = New Company+");
 		System.out.print("Please enter your option: ");
 		int option = in.nextInt();
 		System.out.println();
@@ -15,31 +16,91 @@ public class MainMenu {
 		if(option == 1)
 		{
 			Internet i = new Internet();
+			ver = Verify();
+			if (ver == 1) {
 			i.main(args);
+			} else if ( ver == 2) {
+				System.out.print("Access Denied");
+			}else {
+				System.out.print("Please enter the value within the option");
+			}
 		}
 		
 		else if(option == 2)
 		{
 			MobilePhone m = new MobilePhone();
+			ver = Verify();
+			if (ver == 1) {
 			m.main(args);
+			} else if ( ver == 2) {
+				m.Staff();
+			}else {
+				System.out.print("Please enter the value within the option");
+			}
 		}
 		
 		else if(option == 3)
 		{
 			Laptop l = new Laptop();
+			ver = Verify();
+			if (ver == 1) {
 			l.main(args);
+			} else if ( ver == 2) {
+				System.out.print("Access Denied");
+			}else {
+				System.out.print("Please enter the value within the option");
+			}
 		}
 		
 		else if(option == 4)
 		{
 			SmartWatch s = new SmartWatch();
+			ver = Verify();
+			if (ver == 1) {
 			s.main(args);
+			} else if ( ver == 2) {
+				System.out.print("Access Denied");
+			}else {
+				System.out.print("Please enter the value within the option");
+			}
 		}
 		
 		else if(option == 5)
 		{
 			Television t = new Television();
-			t.main(args);
+			ver = Verify();
+			if (ver == 1) {
+				System.out.print("Access Denied");
+			} else if ( ver == 2) {
+				t.main(args);
+			}else {
+				System.out.print("Please enter the value within the option");
+			}
+		}else if (option == 6) {
+			System.out.println("*********Website*********");
+			System.out.println("Hi in this option you will be using our website to create your own platform");
+			System.out.println("For your information, by using our website it means your company have to pay monthly in order to make it as its your own platform");
+			System.out.println("Any information about your customer wil be protect and will not share any details of it.");
+			System.out.println("For creation of your website we will make it based on your own preference which we will discuss it later ");
+			System.out.println("Are you interest to build your own platform here?");
+			System.out.println("1 = yes  2 = no ?");
+			int choice = in.nextInt();
+			if (choice == 1) {
+				System.out.println ("Please enter the details ");
+				System.out.println("Your Company Name : ");
+				String Company = in.next();
+				System.out.println("Your Email : ");
+				String Email = in.next();
+				System.out.println("Your contact number : ");
+				String Contact = in.next();
+				System.out.println("What your company sells for : ");
+				String Sell = in.next();
+				System.out.println("Thank you very much for choosing us, we will email you onwards");
+			} else if (choice == 2) {
+			System.out.println("We respect your decision, hope we meet again :)");
+			} else {
+				System.out.print("Please enter the value within the option");
+			}
 		}
 		
 		else
@@ -49,8 +110,19 @@ public class MainMenu {
 
 	}
 
-
+		
 
 	}
-
+	public static int Verify() {
+		Scanner in = new Scanner(System.in);
+		int ver;
+		System.out.println ("Are you user or staff ?");
+		System.out.println ("Enter 1 if user");
+		System.out.println ("Enter 2 if staff");
+		System.out.print ("Answer: ");
+		ver = in.nextInt();
+		return ver;
+		
+	}
+	
 }
