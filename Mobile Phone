@@ -1,0 +1,443 @@
+package coding;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class MobilePhone {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String[] username = {"admin", "john", "alina"};
+		 String[] password = {"123", "456", "789"};
+		 String Staff = "Lasak";
+		 
+		double TotalRepair = 0;
+		char Select;
+		String  Pas ;
+		double months = 30, TA = 25 , TB = 45 , Instant = 8 , Extra = 30, Mistake = 100;
+		
+		Intro();
+		System.out.print("Your Answer : ");
+		Select = Choice() ;
+		
+		if((Select == 'a') || (Select == 'A') ) {
+			Cover(months , TA, TB, Instant, Extra, Mistake);
+		}else if ((Select == 'b')||(Select == 'B')) {
+			Claim(TotalRepair,username, password);
+		}else if ((Select == 'T')||(Select == 't')) {
+			System.out.println("Password?");
+			Pas = sc.next();
+			if(Pas.equals(Staff)) {
+				
+				 Claim2();
+			}else {
+				System.out.println("You are not our staff");
+			}
+		}
+		else { 
+			System.out.println ("That is not in our option :)");
+		}
+		
+		System.out.println("Thank you again and see you later ");
+		
+	}	
+	public static char Choice() {
+		Scanner sc = new Scanner(System.in);
+		char Select = sc.next().charAt(0);
+		return Select;
+	}	
+	
+	
+	
+		public static void Intro() {
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                          Hi welcome to Talasco                               ");
+		System.out.println("                       'Protection is our necessity'                          ");
+		System.out.println("                                                                              ");
+		System.out.println(" Please select between this option :                                          ");
+		System.out.println("                   A) Insurance cover                                         ");
+		System.out.println("                   B) Insurance claim(Staff)                                  ");
+	
+	}	public static void Cover(double months,double TA,double TB,double Instant,double Extra,double Mistake) {
+		
+		Scanner sc = new Scanner(System.in);
+		String Name,Ic,lastName ;
+		String ListA[][] = {{"Apple iPhone 5C 16GB","Apple iPhone 6","Apple iPhone 6S","Apple iPhone 7"},
+							{"Apple iPhone 8","Apple iPhone SE 2020","Google Pixel 3A XL","Google Pixel 3A"},
+							{"HTC ONE M9","Samsung Galaxy A10e","Samsung Galaxy J3"," Samsung Galaxy J7"},
+							{"Samsung Galaxy S3","Samsung J727","Samsung Galaxy A6 SHINE","Samsung Galaxy A11"},
+							{"Samsung Galaxy A20","Samsung Galaxy A21","Samsung Galaxy A32 5G","Samsung Galaxy A50","Samsung Galaxy A51 5G"}};
+		String ListB[][] = {{"Apple iPhone 11","Apple iPhone 11 PRO","Apple iPhone 11 Pro Max"," Apple iPhone 6S Plus","Apple iPhone XR"},
+				{"Apple iPhone 6 Plus"," Apple iPhone 7 Plus","Apple iPhone 8 plus"," Apple iPhone X","Apple iPhone XS"},
+				{"Apple iPhone 12 PRO"," Apple iPhone 12 PRO MAX","Apple iPhone 12","  Apple iPhone 12 MINI"},
+				{"Google Pixel 3"," Google Pixel 3 XL","Google Pixel 4","Google Pixel 4 XL ","Google Pixel 5"},
+				{"Samsung Galaxy Fold"," Samsung Galaxy Note 10","Samsung Galaxy Note 10 Plus","Samsung Galaxy Note 8","Samsung Galaxy Note 9"},
+				{"Samsung Galaxy S10","Samsung Galaxy S10 Plus"," Samsung Galaxy S10e"," Samsung Galaxy S20 5G","Samsung Galaxy S20 FE","Samsung Galaxy S20 Plus 5G"},
+				{" Samsung Galaxy S20 Ultra 5G"," Samsung Galaxy S20 ULTRA 5G"," Samsung Galaxy S21 5G","Samsung Galaxy S21 ULTRA 5G","Samsung Galaxy S21 PLUS 5G"},
+				{" Samsung Galaxy S6"," Samsung Galaxy S7"," Samsung Galaxy S7 ACTIVE"," Samsung Galaxy S7 Edge","Samsung Galaxy S8","Samsung Galaxy S8 Active"},
+				{"Samsung Galaxy S8 Plus"," Samsung Galaxy S9","Samsung Galaxy S9 Plus","Samsung Galaxy S10 5G","Samsung Galaxy Z FLIP 5G","Samsung Galaxy Z FLIP"}};
+				
+		int  deviceCountA, deviceCountB, TierA, TierB, eligible, InstantCover, ExtraClaim, Human,pass,Duration,parts,Days;
+		double  commit, income, eligibility, totalTA , totalTB, totalInstant, totalExtra, totalMistake, total,price;
+		
+		System.out.println("---------------------------------Details--------------------------------------");
+		System.out.println(" Our insurance offer a protection for :                                       ");
+		System.out.println("                                                                              ");
+		System.out.println("  a) Stolen Phone by thief - If your phone are being stolen by thief,you can  ");
+		System.out.println("     get a new phone with same model and we also will file a report to the    ");
+		System.out.println("     police.                                                                  ");
+		System.out.println("  b) Free Repair Service   - If your phone has been damage like a cracked     ");
+		System.out.println("     phone screen or any kind of problem. You will get a comepensation for a  ");
+		System.out.println("     free repair service but limit with certain amount RM.                    ");
+		System.out.println("  c) Overseas Travel       - If you are study abroad or having a vacation on  ");
+		System.out.println("     our company will pay your data roaming price                             ");
+		System.out.println("---------------------------------Price----------------------------------------");
+		System.out.println(" This is our price : # For Tier A phone - RM 25/ month                        ");
+		System.out.println("    $(if want)       # For Tier B phone - RM 45/ month                        ");
+		System.out.println("    #(a must)        # Monthly payment -  RM 30/ month                        ");
+		System.out.println("                      Additional Insurance                                    ");
+		System.out.println("                     # Instant Cover    - +RM 8                               ");
+		System.out.println("                     # RM 3200 for claim (normal claim only RM 800) - + RM 30 ");
+		System.out.println("                     # Human mistake cover - + RM 100                         ");
+		System.out.println("--------------------------------Condition-------------------------------------");
+		System.out.println(" Only eligible if eligibility percentage under 30 %                           ");
+		System.out.println(" This insurance must pay every month for 12 months                            ");
+		System.out.println(" If there is any unpaid payment for once. We will cancel your service         ");
+		System.out.println("--------------------------------Insurance-------------------------------------");
+		System.out.print  (" Please insert your first name: ");
+		Name = sc.next();
+		System.out.print  (" Please insert your last name: ");
+		lastName = sc.next();
+		System.out.print  (" Please enter your ic number: ");
+		Ic = sc.next();
+		System.out.print  ("Please enter your monthly income: RM");
+		income = sc.nextDouble();
+		System.out.print  (" Please enter your monthly commitment: RM");
+		commit = sc.nextDouble();
+		eligibility = (commit / income) * 100 ;
+		if (eligibility < 30) {
+		System.out.println("------------------------------Type Of Insurance-------------------------------");
+		System.out.println(" From the list please find your tier phone model                               ");
+		System.out.println("------------------------------Tier A------------------------------------------");
+		print2D(ListA);
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("");
+		System.out.println("------------------------------Tier B------------------------------------------");
+		print2D2(ListB);
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.print(" Is your phone tier A ( 1 if yes , 0 if no) : ");
+		TierA = sc.nextInt();
+		System.out.print(" Is your phone tier B ( 1 if yes , 0 if no) : ");
+		TierB = sc.nextInt();
+		System.out.print(" Want to add more device to use this insurance? Please enter the quantity ");
+		System.out.print(" \nFor phone tier A  : ");
+		deviceCountA = sc.nextInt();
+		System.out.print(" For phone tier B  : ");
+		deviceCountB = sc.nextInt();
+		System.out.println("---------------------------Additional Features--------------------------------");
+		System.out.print(" Instant cover? (Enter 1 if yes , 0 if no) : ");
+		InstantCover = sc.nextInt();
+		System.out.print(" RM 3200 claim for mechanical and software problems(Enter 1 if yes , 0 if no):  ");
+		ExtraClaim = sc.nextInt();
+		System.out.print(" Human Mistake Cover? (This only cover for accidently misplace your device and lose it (Enter 1 if yes , 0 if no): ");
+		Human = sc.nextInt();
+		System.out.println("---------------------Please wait proceeding your receipt----------------------");
+		totalTA = (TierA + deviceCountA )* TA ;
+		totalTB = (TierB + deviceCountB) * TB ;
+		totalInstant = InstantCover * Instant ;
+		totalExtra = ExtraClaim * Extra ;
+		totalMistake = Human * Mistake ;
+		total = Calculation(totalTA,totalTB,totalInstant,totalExtra,totalMistake,months);
+		
+		
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                                 Receipt                                      ");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                                                                              ");
+		System.out.println("                                                                              ");
+		System.out.println("     NAME: " + Name + " " + lastName );
+		System.out.println("    IC NO: " + Ic   );
+		System.out.println("    Payment per month: RM" + total);
+		System.out.println("                                                                              ");
+		System.out.println("                                                                              ");
+		System.out.println("                                                                              ");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                               Thank you >_<                                  ");
+		System.out.println("------------------------------------------------------------------------------");
+		}else 
+			System.out.println("You are not eligible to take this insurance");
+	}	
+		public static double Calculation(double totalTA,double totalTB,double totalInstant,double totalExtra,double totalMistake,double months) {
+			double total = totalTA + totalTB + months + totalInstant + totalExtra + totalMistake;
+			return total;
+	}	public static void print2D(String ListA[][])
+    {
+        // Loop through all rows
+        for (String[] row : ListA)
+ 
+            // converting each row as string
+            // and then printing in a separate line
+            System.out.println(Arrays.toString(row));
+    }public static void print2D2(String ListB[][])
+    {
+        // Loop through all rows
+        for (String[] row : ListB)
+ 
+            // converting each row as string
+            // and then printing in a separate line
+            System.out.println(Arrays.toString(row));
+    }
+	
+		public static void Claim(double TotalRepair, String[] username, String[] password){
+			Scanner sc = new Scanner(System.in);
+			 
+			char option,budget,needs,Select,Claiming,ThiefCo,InstCover,HumanCover,ExClaim ;
+			String    Name,Ic,lastName,ID,pass ;
+			int  deviceCountA, deviceCountB, TierA, TierB, eligible, InstantCover, ExtraClaim, Human,Duration,parts,Days;
+			double  commit, income, eligibility, totalTA , totalTB, totalInstant, totalExtra, totalMistake, total,price,RepairPrice,BalanceRepair,Roam,TotalRoam;
+			
+		System.out.println("Please enter Staff ID");
+		ID = sc.next();
+		
+		 System.out.println("Please enter the password");
+		
+			 for (int i = 0; i < username.length; i++) {
+					 for(int j = 0 ; j <= 3; j++) {
+						 pass = sc.next();
+		if (username[i].equals(ID) && password[i].equals(pass)) {
+					System.out.println("You have logged in!                                                           ");
+					System.out.println("------------------------------------------------------------------------------");
+					System.out.println("------------------------------------------------------------------------------");
+					System.out.println("How many months does the customer pay the insurance : ");
+					Duration = sc.nextInt();
+					System.out.println("What kind of insurance you want to claim :                                    ");
+					System.out.println("                   A. Thief Cover                                             ");
+					System.out.println("                   B. Free Repair Service                                     ");
+					System.out.println("                   C. Data Travel Cover                                       ");
+					Claiming = sc.next().charAt(0);
+						if((Claiming == 'a')||(Claiming == 'A')) {
+							ClaimingA(ID);
+						} else if((Claiming == 'b')||(Claiming == 'B')) {
+							ClaimingB(ID,TotalRepair);
+						} else if((Claiming == 'c')||(Claiming == 'C')) {
+							ClaimingC(ID);
+						}  
+					
+			}else   {
+				System.out.println("Please enter the password again ");
+				
+				
+			}
+			
+			 }	System.out.println("You are reaching limit of attempt password...please try again later");
+		
+	}
+	
+
+} public static void ClaimingA(String ID) {
+	Scanner sc= new Scanner(System.in);
+	char option,budget,needs,Select,Claiming,ThiefCo,InstCover,HumanCover,ExClaim ;
+	double  commit, income, eligibility, totalTA , totalTB, totalInstant, totalExtra, totalMistake, total,price,RepairPrice,BalanceRepair,Roam,TotalRoam;
+	System.out.println("Is your phone get stolen by thief or you missplace it?");
+	System.out.println("  A - Stolen by thief (with police proof)             ");
+	System.out.println("  B - Misplace it                                     ");
+	System.out.print("Your Answer : ");
+	ThiefCo = sc.next().charAt(0);
+	if ((ThiefCo == 'a')|| (ThiefCo == 'A')) {
+	System.out.print("What is the price of your phone : RM ");
+	price = sc.nextDouble();
+	System.out.println("Do you have instant cover ?: ");
+	System.out.println("Y or N ");
+	InstCover = sc.next().charAt(0);
+	if((InstCover == 'y')||(InstCover =='Y')) {
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                                 Receipt                                      ");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println(" ID STAFF : " + ID);
+		System.out.println(" Your total claim RM " + price );
+		System.out.println("              You will get your phone in 3 days                               ");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                               Thank you >_<                                  ");
+		System.out.println("------------------------------------------------------------------------------");
+	}else if((InstCover == 'n')||(InstCover =='N')){
+	System.out.println("------------------------------------------------------------------------------");
+	System.out.println("                                 Receipt                                      ");
+	System.out.println("------------------------------------------------------------------------------");
+	System.out.println(" ID STAFF : " + ID);
+	System.out.println(" Your total claim RM " + price );
+	System.out.println("              You will get your phone in 1 months                             ");
+	System.out.println("------------------------------------------------------------------------------");
+	System.out.println("                               Thank you >_<                                  ");
+	System.out.println("------------------------------------------------------------------------------");
+	}
+} else if ((ThiefCo == 'b')|| (ThiefCo == 'B')) {
+	System.out.println("Do you have Human error cover ?: ");
+	System.out.println("Y or N ");
+	HumanCover = sc.next().charAt(0);		
+	if((HumanCover == 'y')||(HumanCover =='Y')) {
+		System.out.print("What is the price of your phone : RM ");
+		price = sc.nextDouble();
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                                 Receipt                                      ");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println(" ID STAFF : " + ID);
+		System.out.println(" Your total claim RM " + price );
+		System.out.println("              You will get your phone in 3 days                               ");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("                               Thank you >_<                                  ");
+		System.out.println("------------------------------------------------------------------------------");
+	}else if((HumanCover == 'n')||(HumanCover =='N')){
+		System.out.print("Im really sorry we cannot help you                                              ");
+	}
+}
+} public static void ClaimingB(String ID, double TotalRepair ) {
+	Scanner sc= new Scanner(System.in);
+	int  deviceCountA, deviceCountB, TierA, TierB, eligible, InstantCover, ExtraClaim, Human,Duration,parts,Days;
+	char option,budget,needs,Select,Claiming,ThiefCo,InstCover,HumanCover,ExClaim ;
+	double  commit, income, eligibility, totalTA , totalTB, totalInstant, totalExtra, totalMistake, total,price,RepairPrice,BalanceRepair,Roam,TotalRoam;
+	System.out.println("Do you have Extra Claim Cover ?:");
+	System.out.println("Y or N ");
+	ExClaim = sc.next().charAt(0);
+	if ((ExClaim == 'y')|| (ExClaim == 'Y')) {
+		System.out.println("How many parts of the phone that need repair? :");
+		parts = sc.nextInt();
+		for (int l = 1; l<= parts ; l++) {
+			System.out.print("Enter the the repair price for Part : RM " + l );
+			RepairPrice = sc.nextDouble();
+			TotalRepair = TotalRepair + RepairPrice ;
+		} if (TotalRepair >3200) {
+			BalanceRepair = TotalRepair - 3200 ;
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                                 Receipt                                      ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println(" ID STAFF : " + ID);
+			System.out.println(" Your total claim RM 3200");
+			System.out.println(" The additional price (Personal) : RM " + BalanceRepair );
+			System.out.println("              You will get your compensate in 3 days                          ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                               Thank you >_<                                  ");
+			System.out.println("------------------------------------------------------------------------------");
+		} else if (TotalRepair < 3200) {
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                                 Receipt                                      ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println(" ID STAFF : " + ID);
+			System.out.println(" Your total claim RM " + TotalRepair);
+			System.out.println("              You will get your compensate in 3 days                          ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                               Thank you >_<                                  ");
+			System.out.println("------------------------------------------------------------------------------");
+		}
+	}
+	else if ((ExClaim == 'n')|| (ExClaim == 'N')) {
+		System.out.println("How many parts of the phone that need repair? :");
+		parts = sc.nextInt();
+		for (int l = 1; l<= parts ; l++) {
+			System.out.print("Enter the the repair price for Part : RM " + l );
+			RepairPrice = sc.nextDouble();
+			TotalRepair = TotalRepair + RepairPrice ;
+		} if (TotalRepair >800) {
+			BalanceRepair = TotalRepair - 800 ;
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                                 Receipt                                      ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println(" ID STAFF : " + ID);
+			System.out.println(" Your total claim RM 800");
+			System.out.println(" The additional price (Personal) : RM " + BalanceRepair );
+			System.out.println("              You will get your compensate in 3 days                          ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                               Thank you >_<                                  ");
+			System.out.println("------------------------------------------------------------------------------");
+		} else if (TotalRepair < 800) {
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                                 Receipt                                      ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println(" ID STAFF : " + ID);
+			System.out.println(" Your total claim RM " + TotalRepair);
+			System.out.println("              You will get your compensate in 3 days                          ");
+			System.out.println("------------------------------------------------------------------------------");
+			System.out.println("                               Thank you >_<                                  ");
+			System.out.println("------------------------------------------------------------------------------");
+		}
+	}
+} public static void ClaimingC(String ID) {
+	Scanner sc= new Scanner(System.in);
+	int  deviceCountA, deviceCountB, TierA, TierB, eligible, InstantCover, ExtraClaim, Human,Duration,parts,Days;
+	char option,budget,needs,Select,Claiming,ThiefCo,InstCover,HumanCover,ExClaim ;
+	double  commit, income, eligibility, totalTA , totalTB, totalInstant, totalExtra, totalMistake, total,price,RepairPrice,BalanceRepair,Roam,TotalRoam;
+	System.out.print("How much the price data roaming for your telco ?: RM ");
+	Roam = sc.nextDouble();
+	System.out.println("How many days you will be getting away ? ");
+	Days = sc.nextInt();
+    TotalRoam = Roam * Days ;
+    System.out.println("------------------------------------------------------------------------------");
+	System.out.println("                                 Receipt                                      ");
+	System.out.println("------------------------------------------------------------------------------");
+	System.out.println(" ID STAFF : " + ID);
+	System.out.println(" Your total claim RM " + TotalRoam);
+	System.out.println("------------------------------------------------------------------------------");
+	System.out.println("                               Thank you >_<                                  ");
+	System.out.println("------------------------------------------------------------------------------");
+}
+
+	 public static void Claim2(){
+			Scanner sc = new Scanner(System.in);
+			String[] username = {"admin", "john", "alina"};
+			 String[] password = {"123", "456", "789"};
+			System.out.println("Array:"+Arrays.toString(username)); 
+			ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(username));
+			System.out.println("Array:"+Arrays.toString(password));
+			ArrayList<String> arrayList1 = new ArrayList<String>(Arrays.asList(password));
+			System.out.println("Please enter the new ID : ");
+			String New = sc.next();
+			arrayList.add(New);  
+			username = arrayList.toArray(username);
+			System.out.println("Array after adding element: "+Arrays.toString(username));
+			String New1 = sc.next();
+			arrayList1.add(New1);  
+			password = arrayList1.toArray(password);
+			System.out.println("Array after adding element: "+Arrays.toString(password)); 
+			char option,budget,needs,Select,Claiming,ThiefCo,InstCover,HumanCover,ExClaim ;
+			String    Name,Ic,lastName,ID,pass ;
+			int  deviceCountA, deviceCountB, TierA, TierB, eligible, InstantCover, ExtraClaim, Human,Duration,parts,Days;
+			double  commit, income, eligibility, totalTA , totalTB, totalInstant, totalExtra, totalMistake, total,price,RepairPrice,BalanceRepair,Roam,TotalRoam;
+			double TotalRepair = 0;
+		System.out.println("Please enter Staff ID");
+		ID = sc.next();
+		
+		 System.out.println("Please enter the password");
+		 pass = sc.next();
+			 for (int i = 0; i < username.length; i++) {
+					 
+						
+		if (username[i].equals(ID) && password[i].equals(pass)) {
+					System.out.println("You have logged in!                                                           ");
+					System.out.println("------------------------------------------------------------------------------");
+					System.out.println("------------------------------------------------------------------------------");
+					System.out.println("How many months does the customer pay the insurance : ");
+					Duration = sc.nextInt();
+					System.out.println("What kind of insurance you want to claim :                                    ");
+					System.out.println("                   A. Thief Cover                                             ");
+					System.out.println("                   B. Free Repair Service                                     ");
+					System.out.println("                   C. Data Travel Cover                                       ");
+					Claiming = sc.next().charAt(0);
+						if((Claiming == 'a')||(Claiming == 'A')) {
+							ClaimingA(ID);
+						} else if((Claiming == 'b')||(Claiming == 'B')) {
+							ClaimingB(ID,TotalRepair);
+						} else if((Claiming == 'c')||(Claiming == 'C')) {
+							ClaimingC(ID);
+						}  
+					
+			}
+			
+		
+	}
+	
+
+}
+	
+}
+	
